@@ -1,0 +1,13 @@
+* {
+  background-color: #B95E7F;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+header h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 20px;
+}
