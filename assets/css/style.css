@@ -1,5 +1,5 @@
 * {
-  background-color: #B95E7F;
+  background-color: #DD7399;
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -10,4 +10,13 @@ header h1 {
 p {
   text-align: center;
   font-size: 20px;
+}
+
+button {
+  background-color: #AD2F5C;
+  color: white;
+  display: inline-block;
+  font-size: 15px;
+  align-items: center;
+  padding: 10px 12px;
 }
