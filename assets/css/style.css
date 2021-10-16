@@ -5,18 +5,24 @@
 
 header h1 {
   text-align: center;
+  font-size: 50px;
 }
 
 p {
   text-align: center;
-  font-size: 20px;
+  font-size: 30px;
 }
 
-button {
+.btn {
   background-color: #AD2F5C;
   color: white;
   display: inline-block;
-  font-size: 15px;
-  align-items: center;
+  font-size: 25px;
   padding: 10px 12px;
+  align-items: center;
+  display: flex;
+}
+
+.btn:hover {
+  box-shadow: 0 2px;
 }
