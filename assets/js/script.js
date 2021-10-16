@@ -1,23 +1,19 @@
 //question area
 var questionAreaEl = document.querySelector("#question-area")
+var answerAreaEl = document.querySelector("#question-area")
 
-function renderQuestion(questionIndex) {
-  var currentQuestion = questions[questionIndex]
-  let element = document.createElement("div");
-  element.textContent = currentQuestion.question
-  questionAreaEl.appendChild(element)
-
-  for (let i = 0; i < questions.length; i++)
-  {
-
-  }
+function renderQuestion() {
+  questionAreaEl.textContent = questions[0].question; 
+  answerAreaEl.textContent = questions[0].answers[0].text
+  question0.textContent =  questions[0].answers[1].text
 }
+
 
 //timer
 function timer() {
   console.log("click")
   renderQuestion(0)
-  var sec = 120;
+  var sec = 119;
   var timer = setInterval(function () {
     document.getElementById('TimerDisplay').textContent = '00:' + sec;
     sec--;
@@ -85,14 +81,13 @@ function quiz() {
   if (userAnswer == answer) {
     alert("Correct!");
     score = (score) + 1;
-    document.getElementById('score').innerHTML = score
+    document.getElementById('score').textContent = score
   } else {
     alert("Try Again!")
-    timer = (timer) - 5;
-    document.getElementById('score').innerHTML = score;
+    timer = (timer) - 15;
+    document.getElementById('score').textContent = score;
   }
 }
-
 
 //high score
 
