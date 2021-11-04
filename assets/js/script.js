@@ -5,7 +5,6 @@ var answerAreaEl = document.querySelector("#question-area")
 function renderQuestion() {
   questionAreaEl.textContent = questions[0].question; 
   answerAreaEl.textContent = questions[0].answers[0].text
-  question0.textContent =  questions[0].answers[1].text
 }
 
 
@@ -74,6 +73,24 @@ var questions = [
     ]
   },
 ];
+
+//radio buttons for question and answers
+var divEl = document.createElement('div');
+divEl.id = "question-area";
+divEl.className = "questions";
+var headerEl = document.createElement('h2');
+headerEl.id = "question-area";
+var button = document.createElement('input')
+button.setAttribute ("type", "radio");
+
+divEl.appendChild(headerEl);
+divEl.appendChild(button);
+
+//submit button
+var submitBtnEl = document.querySelector("#submit-btn")
+submitBtnEl.addEventListener("click", (event) => {
+    event.preventDefault();
+})
 
 //right and wrong answers
 function quiz() {
