@@ -4,7 +4,47 @@ var answerAreaEl = document.querySelector("#question-area")
 
 function renderQuestion() {
   questionAreaEl.textContent = questions[0].question; 
-  answerAreaEl.textContent = questions[0].answers[0].text
+
+//radio buttons for question and answers
+var answerContainer = document.createElement('form');
+// answerContainer = 
+var divEl = document.createElement('div');
+divEl.id = "question-area";
+divEl.className = "questions";
+var headerEl = document.createElement('h2');
+headerEl.id = "answer-area";
+var button = document.createElement('input')
+button.setAttribute ("type", "radio");
+button.id = "question1";
+var label = document.createElement('label')
+label.textContent = questions[0].answers[0].text
+label.setAttribute("for","question1")
+button.value = questions[0].answers[0].text
+
+var divEl1 = document.createElement('div');
+divEl1.id = "question-area";
+divEl1.className = "questions";
+var headerEl1 = document.createElement('h2');
+headerEl1.id = "answer-area";
+var button1 = document.createElement('input')
+button1.setAttribute ("type", "radio");
+button1.id = "answer2";
+var label1 = document.createElement('label')
+label1.textContent = questions[0].answers[1].text
+label1.setAttribute("for","answer2")
+button1.value = questions[0].answers[1].text 
+
+headerEl.appendChild(button);
+headerEl.appendChild(label);
+
+headerEl1.appendChild(button1);
+headerEl1.appendChild(label1);
+
+answerContainer.appendChild(headerEl);
+answerContainer.appendChild(headerEl1);
+
+answerAreaEl.appendChild(answerContainer);
+
 }
 
 
@@ -74,18 +114,6 @@ var questions = [
   },
 ];
 
-//radio buttons for question and answers
-var divEl = document.createElement('div');
-divEl.id = "question-area";
-divEl.className = "questions";
-var headerEl = document.createElement('h2');
-headerEl.id = "question-area";
-var button = document.createElement('input')
-button.setAttribute ("type", "radio");
-
-divEl.appendChild(headerEl);
-divEl.appendChild(button);
-
 //submit button
 var submitBtnEl = document.querySelector("#submit-btn")
 submitBtnEl.addEventListener("click", (event) => {
@@ -98,7 +126,7 @@ function quiz() {
   if (userAnswer == answer) {
     alert("Correct!");
     score = (score) + 1;
-    document.getElementById('score').textContent = score
+    document.getElementById('score').textContent = score;
   } else {
     alert("Try Again!")
     timer = (timer) - 15;
