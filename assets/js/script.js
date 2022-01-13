@@ -3,75 +3,85 @@ var questionAreaEl = document.querySelector("#question-area")
 var answerAreaEl = document.querySelector("#question-area")
 
 function renderQuestion() {
-  questionAreaEl.textContent = questions[0].question; 
+  questionAreaEl.textContent = questions[0].question;
 
-//radio buttons for question and answers
-var answerContainer = document.createElement('form');
-// answerContainer 
-var divEl = document.createElement('div');
-divEl.id = "question-area";
-divEl.className = "questions";
-var headerEl = document.createElement('h2');
-headerEl.id = "answer-area";
-var button = document.createElement('input')
-button.setAttribute ("type", "radio");
-button.id = "question1";
-var label = document.createElement('label')
-label.textContent = questions[0].answers[0].text
-label.setAttribute("for","question1")
-button.value = questions[0].answers[0].text
+  //radio buttons for question and answers
+  var answerContainer = document.createElement('form');
 
-var divEl1 = document.createElement('div');
-divEl1.id = "question-area";
-divEl1.className = "questions";
-var headerEl1 = document.createElement('h2');
-headerEl1.id = "answer-area";
-var button1 = document.createElement('input')
-button1.setAttribute ("type", "radio");
-button1.id = "question2";
-var label1 = document.createElement('label')
-label1.textContent = questions[0].answers[1].text
-label1.setAttribute("for","answer2")
-button1.value = questions[0].answers[1].text 
+  // question 1 Container 
+  {
+    var divEl = document.createElement('div');
+    divEl.id = "question-area";
+    divEl.className = "questions";
+    var headerEl = document.createElement('p');
+    headerEl.id = "answer-area";
+    var button = document.createElement('input')
+    button.setAttribute("type", "radio");
+    button.id = "question1";
+    var label = document.createElement('label')
+    label.textContent = questions[0].answers[0].text
+    label.setAttribute("for", "question1")
+    button.value = questions[0].answers[0].text
 
-var divEl2 = document.createElement('div');
-divEl2.id = "question-area";
-divEl2.className = "questions";
-var headerEl2 = document.createElement('h2');
-headerEl2.id = "answer-area";
-var button2 = document.createElement('input')
-button2.setAttribute ("type", "radio");
-button2.id = "question3";
-var label2 = document.createElement('label')
-label2.textContent = questions[0].answers[2].text
-label2.setAttribute("for","answer3")
-button2.value = questions[0].answers[2].text 
+    var divEl1 = document.createElement('div');
+    divEl1.id = "question-area";
+    divEl1.className = "questions";
+    var headerEl1 = document.createElement('p');
+    headerEl1.id = "answer-area";
+    var button1 = document.createElement('input')
+    button1.setAttribute("type", "radio");
+    button1.id = "question2";
+    var label1 = document.createElement('label')
+    label1.textContent = questions[0].answers[1].text
+    label1.setAttribute("for", "answer2")
+    button1.value = questions[0].answers[1].text
 
-var divEl3 = document.createElement('div');
-divEl3.id = "question-area";
-divEl3.className = "questions";
-var headerEl3 = document.createElement('h2');
-headerEl3.id = "answer-area";
-var button3 = document.createElement('input')
-button3.setAttribute ("type", "radio");
-button3.id = "question4";
-var label3 = document.createElement('label')
-label3.textContent = questions[0].answers[3].text
-label3.setAttribute("for","answer4")
-button3.value = questions[0].answers[3].text 
+    var divEl2 = document.createElement('div');
+    divEl2.id = "question-area";
+    divEl2.className = "questions";
+    var headerEl2 = document.createElement('p');
+    headerEl2.id = "answer-area";
+    var button2 = document.createElement('input')
+    button2.setAttribute("type", "radio");
+    button2.id = "question3";
+    var label2 = document.createElement('label')
+    label2.textContent = questions[0].answers[2].text
+    label2.setAttribute("for", "answer3")
+    button2.value = questions[0].answers[2].text
 
-headerEl.appendChild(button);
-headerEl.appendChild(label);
+    var divEl3 = document.createElement('div');
+    divEl3.id = "question-area";
+    divEl3.className = "questions";
+    var headerEl3 = document.createElement('p');
+    headerEl3.id = "answer-area";
+    var button3 = document.createElement('input')
+    button3.setAttribute("type", "radio");
+    button3.id = "question4";
+    var label3 = document.createElement('label')
+    label3.textContent = questions[0].answers[3].text
+    label3.setAttribute("for", "answer4")
+    button3.value = questions[0].answers[3].text
 
-headerEl1.appendChild(button1);
-headerEl1.appendChild(label1);
+    headerEl.appendChild(button);
+    headerEl.appendChild(label);
 
-answerContainer.appendChild(headerEl);
-answerContainer.appendChild(headerEl1);
+    headerEl1.appendChild(button1);
+    headerEl1.appendChild(label1);
 
-answerAreaEl.appendChild(answerContainer);
+    headerEl1.appendChild(button2);
+    headerEl1.appendChild(label2);
 
-}
+    headerEl1.appendChild(button3);
+    headerEl1.appendChild(label3);
+
+    answerContainer.appendChild(headerEl);
+    answerContainer.appendChild(headerEl1);
+    answerContainer.appendChild(headerEl2);
+    answerContainer.appendChild(headerEl3);
+
+    answerAreaEl.appendChild(answerContainer);
+  }
+};
 
 
 //timer
@@ -141,14 +151,10 @@ var questions = [
 ];
 
 //submit button
-var submitBtnEl = document.querySelector("#submit")
+var submitBtnEl = document.getElementById("submit")
 submitBtnEl.addEventListener("click", (event) => {
-    event.preventDefault();
+  event.preventDefault();
 })
-
-//button
-var btn = document.getElementById("begin")
-btn.addEventListener("click", timer);
 
 //right and wrong answers
 function quiz() {
@@ -166,13 +172,13 @@ function quiz() {
 
 //high score
 function setStorage(data) {
-	localStorage.setItem(storageKey, JSON.stringify(data));
+  localStorage.setItem(storageKey, JSON.stringify(data));
 };
 
-function getStorage(){
-	const data = localStorage.getItem(storageKey);
-  	if (!data) return []; 
-  	return JSON.parse(data); 
+function getStorage() {
+  const data = localStorage.getItem(storageKey);
+  if (!data) return [];
+  return JSON.parse(data);
 };
 
 //displays high scores
@@ -180,10 +186,10 @@ function displayHighScores() {
   totalScores = getStorage()
   var html = "<h3> High Scores</h3><ol>";
   for (let pair of totalScores) {
-  html += `<li>${pair.username}: ${pair.currentScore}</li>`;
-}
+    html += `<li>${pair.username}: ${pair.currentScore}</li>`;
+  }
   html += "</ol>";
-  ledgerEl.innerHTML = html;
+  ledgerEl.textContent = html;
 };
 
 //button
