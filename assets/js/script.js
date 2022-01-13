@@ -7,7 +7,7 @@ function renderQuestion() {
 
 //radio buttons for question and answers
 var answerContainer = document.createElement('form');
-// answerContainer = 
+// answerContainer 
 var divEl = document.createElement('div');
 divEl.id = "question-area";
 divEl.className = "questions";
@@ -28,11 +28,37 @@ var headerEl1 = document.createElement('h2');
 headerEl1.id = "answer-area";
 var button1 = document.createElement('input')
 button1.setAttribute ("type", "radio");
-button1.id = "answer2";
+button1.id = "question2";
 var label1 = document.createElement('label')
 label1.textContent = questions[0].answers[1].text
 label1.setAttribute("for","answer2")
 button1.value = questions[0].answers[1].text 
+
+var divEl2 = document.createElement('div');
+divEl2.id = "question-area";
+divEl2.className = "questions";
+var headerEl2 = document.createElement('h2');
+headerEl2.id = "answer-area";
+var button2 = document.createElement('input')
+button2.setAttribute ("type", "radio");
+button2.id = "question3";
+var label2 = document.createElement('label')
+label2.textContent = questions[0].answers[2].text
+label2.setAttribute("for","answer3")
+button2.value = questions[0].answers[2].text 
+
+var divEl3 = document.createElement('div');
+divEl3.id = "question-area";
+divEl3.className = "questions";
+var headerEl3 = document.createElement('h2');
+headerEl3.id = "answer-area";
+var button3 = document.createElement('input')
+button3.setAttribute ("type", "radio");
+button3.id = "question4";
+var label3 = document.createElement('label')
+label3.textContent = questions[0].answers[3].text
+label3.setAttribute("for","answer4")
+button3.value = questions[0].answers[3].text 
 
 headerEl.appendChild(button);
 headerEl.appendChild(label);
@@ -115,10 +141,14 @@ var questions = [
 ];
 
 //submit button
-var submitBtnEl = document.querySelector("#submit-btn")
+var submitBtnEl = document.querySelector("#submit")
 submitBtnEl.addEventListener("click", (event) => {
     event.preventDefault();
 })
+
+//button
+var btn = document.getElementById("begin")
+btn.addEventListener("click", timer);
 
 //right and wrong answers
 function quiz() {
@@ -135,6 +165,26 @@ function quiz() {
 }
 
 //high score
+function setStorage(data) {
+	localStorage.setItem(storageKey, JSON.stringify(data));
+};
+
+function getStorage(){
+	const data = localStorage.getItem(storageKey);
+  	if (!data) return []; 
+  	return JSON.parse(data); 
+};
+
+//displays high scores
+function displayHighScores() {
+  totalScores = getStorage()
+  var html = "<h3> High Scores</h3><ol>";
+  for (let pair of totalScores) {
+  html += `<li>${pair.username}: ${pair.currentScore}</li>`;
+}
+  html += "</ol>";
+  ledgerEl.innerHTML = html;
+};
 
 //button
 var btn = document.getElementById("begin")
