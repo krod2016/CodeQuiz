@@ -1,8 +1,9 @@
 # Code Quiz
+A place for you to test your JavaScript knowledge.
 
 # Description
--insert screenshot here-
-This quiz is to test your JavaScript knowledge.
+![CodeQuiz-homepage](https://user-images.githubusercontent.com/88009884/149632892-a78fa7f0-d2fc-49e5-b1b5-de149201c734.png)
+A screenshot of the first question of the quiz.
 
 # Installation
 * I made a folder to hold all my information together
